@@ -2,29 +2,35 @@
 @import "main.css"; /* 외부css 불러오기 */
 
 h1 {
-    color: red;
-    background-color: greenyellow;
+  color: red;
+  /* 폰트 설정
+        : 후보 글꼴을 ,로 나열
+        : 폰트가 없을 경우 대비, 가장 마지막에 
+            일반 글꼴을 명시
+    */
+  font-family: 궁서체, 신명조, serif;
+  background-color: greenyellow;
 }
 
 /* 가상 선택자: 반응 선택자 */
 /* link상태와 visited상태는 A Tag Only */
 
 a:link {
-    /* 미방문일 때 */
-    color: cyan;
+  /* 미방문일 때 */
+  color: cyan;
 }
 
 a:visited {
-    /* 이미 방문한 링크일 때 */
-    color: blue;
+  /* 이미 방문한 링크일 때 */
+  color: blue;
 }
 
 a:hover {
-    /* 마우스가 올라왔을 때 색상 */
-    color: black;
+  /* 마우스가 올라왔을 때 색상 */
+  color: black;
 }
 
 a:active {
-    /* 마우스로 클릭했을 때 상태 */
-    color: red;
+  /* 마우스로 클릭했을 때 상태 */
+  color: red;
 }
