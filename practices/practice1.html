@@ -5,6 +5,65 @@
 <title>테이블</title>
 
 <style type="text/css" media="screen">
+	/* 기본 마진, 패딩 */
+	* {
+		padding: 0;
+		margin: 0;
+	}
+	/* 기본 글꼴 설정 */
+	body {
+		font-family: "맑은 고딕", 돋움, sans-serif;
+		font-size: 0.75em; /* 75% */
+		color: #333; /* #333333과 같은 표기 */
+	}
+
+	.tbl-ex {
+		margin: 10px auto;
+		margin-bottom: 0px;
+	}
+	/* 단계 2 */
+	.tbl-ex, th, td {
+		border: 1px solid #333;
+	}
+	/* 단계 3 */
+	.tbl-ex {
+		border-collapse: collapse;
+	}
+	/* 단계 4 */
+	th, td {
+		padding: 8px;
+	}
+	/* 단계 5 */
+	th {
+		background-color: #999;
+		font-size: 1.1em; /* 110% */
+		color: #fff;
+	}
+	/* 단계 6 */
+	.tbl-ex, th, td {
+		border-left: 0px;
+		border-right: 0px;
+	}
+	/* 단계 7 */
+	th {
+		border-top: 2px solid black;
+		border-bottom: 2px solid black;
+	}
+	/* 단계 8 */
+	td {
+		border-style: dotted;
+	}
+	/* 단계 10 */
+	tr:nth-child(2n+1) {
+		background-color: #E8ECF6;
+	}
+	/* 단계 9 */
+	tr:hover {
+		background-color: #fc6;
+		cursor: pointer;
+	}
+	/* css는 덮어쓰기 때문에 순서가 중요! 
+	단계 9,10 을 순차적으로 진행하면 */
 
 </style>
 </head>
