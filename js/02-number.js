@@ -23,3 +23,35 @@ console.log("표현 가능한 최대 정수:", Number.MAX_SAFE_INTEGER);
 console.log("표현 가능한 가장 큰 수:", Number.MAX_VALUE);
 console.log("표현 가능한 최소 정수:", Number.MIN_SAFE_INTEGER);
 console.log("표현 가능한 가장 작은 수:", Number.MIN_VALUE);
+
+console.log("-------- Casting: 타입 변환");
+//  중간에 데이터 타입이 변경될 수 있다 -> 형변환이 필요한 경우가 많기때문
+//  parse 계열: parseInt, parseFloat
+console.log("011", parseInt("011"));
+console.log("011", parseInt("011", 2))  //  2진수 011을 반환
+console.log("0xFF", parseInt("0xFF", 16));  //  16진수 FF를 변환
+console.log("123.456", parseInt("123.456"));    //  정수형으로 변환
+console.log("123.456", parseFloat("123.456"));  //  실수형으로 변환
+
+//  parse계열 메서드는 단순히 String -> Number
+//  다른 타입으로 변경도 가능
+console.log("PI", parseInt(Math.PI));   //  float -> int 변환
+
+//  중요: NaN(not a number) - 숫자로 변환할 수 없는 문자열을 반환할 때 생김
+let v = parseInt("abc1234567");
+console.log(v, "is ", typeof v);
+//  NaN가 포함된 산술 연산은 그대로 NaN가 된다
+console.log(v + 2021);  // NaN + 2021 = NaN
+//  number 타입 변수가 NaN인가?
+console.log(isNaN(V));  //  true가 출력
+
+//  Infinity
+v = 1/0;
+console.log("1/0 = ", v, typeof v);
+//  Infinity가 포함된 연산식은 항상 Infinity이다
+console.log(v + 2021);  //  Infinity + 2021 = Infinity
+
+//  유한수치인지 확인 isFinite 함수
+console.log("1/0 is Finite?", isFinite(1/0));
+console.log("2021 is Finite?", isFinite(2021));
+console.log("NaN is Finite?", isNaN(parseInt("abc123")));
