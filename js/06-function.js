@@ -69,3 +69,36 @@ usingCallback(7, 5, function (v1, v2) {
 usingCallback(7, 5, function (v1, v2) {
   console.log(v1 * v2); //  실행 로직을 호출 시 주입 가능
 });
+
+//  화살표 함수: =>
+//  매개 변수가 없을 때
+console.log("==== Arrow함수");
+const f1 = function () {
+  return "hello";
+};
+const f1Arrow = () => "hello";
+
+console.log(f1(), typeof f1);
+console.log(f1Arrow(), typeof f1Arrow);
+
+//  매개 변수가 있을 때(1개)
+const f2 = function (name) {
+  return "Hello " + name;
+};
+const f2Arrow = (name) => "Hello " + name;
+
+console.log(f2("홍길동"));
+console.log(f2Arrow("홍길동"));
+
+//  매개 변수가 있을 때(여러개)
+const f3 = function (a, b) {
+  return a + b;
+};
+const f3Arrow = (a, b) => a + b;
+
+console.log(f3(7, 5));
+console.log(f3Arrow(7, 5));
+//  화살표함수는 콜백함수를 전달할 때 활용이 좋다
+usingCallback(10, 20, (v1, v2) => {
+  console.log(v1 + v2);
+});
