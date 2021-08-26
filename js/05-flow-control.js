@@ -54,3 +54,40 @@ while (count > 0) {
   console.log(stars);
   count--;
 }
+
+//  ES6: for ... in
+//  객체의 속성(프로퍼티)을 순회한다
+//  ES6: for ... of
+//  객체의 값을 순회한다
+let obj = {
+  name: "홍길동",
+  age: 28,
+  job: "도적",
+  gender: "남성",
+};
+console.log("===== for ... in");
+for (let key in obj) {
+  //  for ... in: 객체의 속성을 순회
+  console.log(key, "->", obj[key]);
+}
+
+const arr = [5, 1, 4, 3, 2, 9, 8, 0];
+for (let key in arr) {
+  //   for ... in: 인덱스를 표기
+  console.log(key);
+}
+
+console.log("===== for ... of");
+for (let value of arr) {
+  //   for ... of: 프로퍼티를 표기
+  console.log(value);
+}
+
+//  for of는 순회 객체(배열)에서만 사용가능
+//  나머지에서 사용시 에러가 난다
+// for (let value of obj) {
+//   //   for ... of: 프로퍼티를 표기
+//   console.log(value);
+// } -> obj는 순회객체가 아니라서 에러가 난다
+
+//  주의: for...in과 for...of 구분해서 사용하기
