@@ -26,9 +26,11 @@
         height: 100px;
       }
     </style>
-    <!-- jQuery -->
-    <!-- 로컬 서버에 설치 -->
-    <!-- script src="script/jquery.js"></script -->
+    <!-- JQuery -->
+
+    <!-- 로컬 서버에 설치-->
+    <!-- <script src="./script/jquery.js"></script> -->
+
     <!-- CDN 버전 -->
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
@@ -39,7 +41,7 @@
 
   <body>
     <div id="product-info">
-      <!-- 태그에 이벤트 리스너를 붙이는 방법: 
+      <!-- 태그에 이벤트 리스너를 붙이는 방법:
             Inline JavaScript: 추천하지 않음 -->
       <img
         id="main-image"
@@ -67,6 +69,8 @@
             title="iPhone XS"
             data-color="red"
           />
+          <!-- data-블라 = ""
+                사용자 정의 속성!-->
         </li>
         <li>
           <img
@@ -100,28 +104,67 @@
     function testAttributes() {
       //  id가 main-image인 요소를 가지고 와서 속성 확인
       //  Wrapper는 다양한 방식으로 활용
-      //  HTMLElement가 아닌 jQuery로 감싼 객체
-
-      let obj = $("#main-image"); // == getElementById
+      //  HTMLElement가 아닌jQuery로 감싼 객체
+      let obj = $("#main-image"); //  id 속성이 main-image == getElementById
       console.log("#main-image:", obj);
 
-      //  가지고 있는 모든 속성의 반환
+      //  가지고 있는 모든 속성의 반환(포장을 풀어줘야함)
       console.log(obj[0].getAttributeNames());
       //  title 속성을 확인
       console.log("title:", obj.attr("title"));
+      //  속성을 세팅할때는 .attr("title", 값) -> 두번째 인자값에 값을 넣음
       //  title 속성의 변경
       obj.attr("title", "사진:" + obj.attr("title"));
 
+      //  .text() -> innerText를 가져오는 메서드
+      //  .text("블라블라") -> innerText를 설정하는 메서드
+
       //  하단 Products의 이미지들의 title 속성도 변경해 봅시다.
-      let subs = $(".sub-image"); //  == getElementsByClassName
+      let subs = $(".sub-image"); //  == getElementsByClass
 
       console.log(".sub-image:", subs);
       for (let i = 0; i < subs.length; i++) {
-        // jQuery 객체가 아닌 HTML 엘리먼트는
+        console.log(subs[i]);
+        //  jQuery객체가 아닌 HTML 엘리먼트는
         //  $로 묶어야 jQuery 메서드를 호출할 수 있다.
         $(subs[i]).attr("title", "사진:" + $(subs[i]).attr("title"));
       }
     }
     testAttributes();
+
+    $("#main-image").on("click", function (event) {
+      //  이벤트 객체 확인
+      console.log(event);
+      console.log("이벤트 발생 객체:", event.target);
+
+      alert($(event.target).attr("title"));
+    });
+
+    $(document).ready(function () {
+      //  페이지 초기화 수행
+      //  키보드 이벤트
+      $("#keyword").on("keyup", function (event) {
+        console.log(event); //  이벤트 정보 객체
+        console.log(event.target); // 이벤트 발생 객체
+        console.log("눌러진 키:", event.keyCode);
+
+        $("#btn-search").text($(event.target).val() + ":검색");
+      });
+      //    class가 sub-image인 모든 요소들 검색
+      let products = $(".sub-image");
+      //  jQuery는 검색된 요소가 여러개여도 루프를 돌려지 않아도 된다.
+      products.on("click", function (event) {
+        let obj = $(event.target);
+        let mainImage = $("#main-image");
+        mainImage.attr({
+          src: obj.attr("src"),
+          title: obj.attr("title"),
+        }); //  여러속성을 동시에 설정할때는 JavaScript 객체
+
+        let title = $("#product-info h2");
+        title.html(obj.attr("title"));
+        title.css("background-color", obj.data("color"));
+      });
+    });
   </script>
 </html>
