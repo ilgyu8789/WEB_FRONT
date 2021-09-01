@@ -62,7 +62,10 @@
         itemNode.appendChild(toolbar);
 
         //  트리에 추가
-        container.appendChild(itemNode);
+        let firstItem = container.children[0];
+        //   기준이 되는 노드
+        container.insertBefore(itemNode, firstItem);
+        // container.appendChild(itemNode); //  appendChild는 뒤쪽에 추가
       }
 
       itemInput.value = "";
