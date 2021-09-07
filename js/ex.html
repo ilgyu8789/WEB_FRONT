@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>^o^</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+    crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div>이름 : <input type="text" id="name" value="" /></div>
+        <div>지역 : 
+        <select id="city" onchange="changeCity();">
+            <option value="02" selected>서울</option>
+            <option value="064">제주</option>
+            </select>
+        </div>
+        <div>동네 :
+            <select id="region_02">
+                <option value="">강남</option>
+                <option value="">서초</option>
+            </select>
+            <select id="region_064" style="display: none;">
+                <option value="">제주시</option>
+                <option value="">서귀포시</option>
+            </select>
+        </div>
+        <button type="button" onclick="regist();">등록</button>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" 
+    crossorigin="anonymous">
+    </script>
+    <script>
+        function regist() { //  클릭 했을 때 regist라는 함수를 호출하겠다는 표기
+            //  javascript
+            alert(document.getElementById("name").value);
+            alert(document.getElementById("city").value);
+
+            //  jquary
+            // alert($("#name").val());
+            // alert($("#city").val());
+
+            // document.getElementById("name").value;
+        }
+        function changeCity() {
+            //  javascript
+            let city = document.getElementById("city").value;
+            document.getElementById("region_02").style.display="none";
+            document.getElementById("region_064").style.display="none";
+
+            document.getElementById("region_"+city).style.display="";
+
+            //  jquary
+            // let city = $('#city').val();
+            // $('#region_02').hide();
+            // $('#region_064').hide();
+            // $('#region_' + city).show();
+        }
+    </script>
+</body>
+</html>
