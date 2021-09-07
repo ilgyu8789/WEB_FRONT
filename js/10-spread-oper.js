@@ -68,4 +68,3 @@ console.log("ES6 combine:", combined);
 console.log("원본:", combined);
 var { one, three, ...others } = combined;
 console.log(one, three, others);
-
